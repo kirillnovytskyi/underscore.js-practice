@@ -195,3 +195,82 @@
 
 // const ev = every([2, 2, 6, 4], el => el % 2 === 0);
 // console.log(ev);
+
+// #11 some
+
+// const some = (list, predicate = () => {}) => {
+//   for (let i = 0; i < list.length; i++) {
+//     if (predicate(list[i])) return true;
+//   }
+//   return false;
+// };
+
+// const sm = some([null, 0, 'yes', false], el => el === 0);
+// console.log(sm);
+
+// #12 contains
+
+// const contains = (list, value, fromIndex = 0) => {
+//   if (Array.isArray(list)) {
+//     for (let idx = fromIndex; idx < list.length; idx++) {
+//       if (list[idx] === value) return true;
+//     }
+//   } else {
+//     list = Object.values(list);
+
+//     for (let idx = fromIndex; idx < list.length; idx++) {
+//       if (list[idx] === value) return true;
+//     }
+//   }
+
+//   return false;
+// };
+
+// const elem1 = contains([1, 2, 3], 3, 1);
+// const elem2 = contains({ a: 1, b: 2, c: 3 }, 3, 1);
+
+// console.log(elem1);
+// console.log(elem2);
+
+// #13 pluck
+
+// const pluck = (list, propertyName) => {
+//   const result = [];
+
+//   for (let i = 0; i < list.length; i++) {
+//     result.push(list[i][propertyName]);
+//   }
+
+//   return result;
+// };
+
+// const toPluck = [
+//   { name: 'moe', age: 40 },
+//   { name: 'larry', age: 50 },
+//   { name: 'curly', age: 60 },
+// ];
+
+// const plucked = pluck(toPluck, 'name');
+// console.log(plucked);
+
+// #14 max
+
+// const max = (list, iteratee) => {
+//   if (list.length === 0) return -Infinity;
+
+//   if (!iteratee) {
+//     list = list.filter(el => typeof el === 'number');
+//     return Math.max(...list);
+//   } else {
+//     const arr = [];
+
+//     for (let i = 0; i < list.length; i++) {
+//       arr.push(iteratee(list[i]));
+//     }
+
+//     const filtered = arr.filter(el => typeof el === 'number');
+//   }
+// };
+
+// const maxNum = max([1, 5, 3, 7, 8, 'k', 'j']);
+// console.log(maxNum);
