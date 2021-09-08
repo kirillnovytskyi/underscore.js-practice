@@ -253,24 +253,74 @@
 // const plucked = pluck(toPluck, 'name');
 // console.log(plucked);
 
-// #14 max
+// #14 shuffle
 
-// const max = (list, iteratee) => {
-//   if (list.length === 0) return -Infinity;
+// const randomInt = (min, max) => {
+//   Math.floor(Math.random() * (max - min + 1)) + min;
+// };
 
-//   if (!iteratee) {
-//     list = list.filter(el => typeof el === 'number');
-//     return Math.max(...list);
+// const shuffle = list => {
+//   for (let i = list.length - 1; i > 0; i--) {
+//     let j = Math.floor(Math.random() * (i + 1));
+//     [list[i], list[j]] = [list[j], list[i]];
+//   }
+//   return list;
+// };
+
+// const shuffledList = shuffle([1, 2, 3, 4, 5, 6, 7, 8, 9, 10]);
+// console.log(shuffledList);
+
+// #15 sample
+
+// const sample = (list, n = 1) => {
+//   const result = [];
+
+//   for (let i = 0; i < n; i++) {
+//     let j = Math.floor(Math.random() * (list.length - 1 + 1));
+//     result.push(list[j]);
+//     list.splice(j, 1);
+//   }
+
+//   return result;
+// };
+
+// const sampled = sample([1, 2, 3]);
+// console.log(sampled);
+
+// #16 toArray
+
+// const toArray = list => Object.values(list);
+
+// const vals = toArray({ 0: 1, 1: 2, 2: 3 });
+// console.log(vals);
+
+// #17 size
+
+// const size = list => {
+//   if (Array.isArray(list)) {
+//     return list.length;
 //   } else {
-//     const arr = [];
-
-//     for (let i = 0; i < list.length; i++) {
-//       arr.push(iteratee(list[i]));
-//     }
-
-//     const filtered = arr.filter(el => typeof el === 'number');
+//     return Object.values(list).length;
 //   }
 // };
 
-// const maxNum = max([1, 5, 3, 7, 8, 'k', 'j']);
-// console.log(maxNum);
+// const arrSize = size([1, 2, 3]);
+// const objSize = size({ 0: 1, 1: 2, 2: 3 });
+
+// console.log(arrSize, objSize);
+
+// #18 partition
+
+// const partition = (array, predicate) => {
+//   let passed = [];
+//   let failed = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     predicate(array[i]) ? passed.push(array[i]) : failed.push(array[i]);
+//   }
+
+//   return [passed, failed];
+// };
+
+// const partitions = partition([1, 2, 3, 4], el => el % 2 === 0);
+// console.log(partitions);
