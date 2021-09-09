@@ -231,3 +231,109 @@
 
 // const uniq1 = uniq([1, 2, 1, 4, 1, 3], false, el => el * 2);
 // console.log(uniq1);
+
+// #12 zip
+
+// const zip = (...arrays) => {
+//   const result = [];
+
+//   for (let i = 0; i < arrays.length; i++) {
+//     for (let j = 0; j < arrays[i].length; j++) {
+//       result[j] ? result[j].push(arrays[i][j]) : (result[j] = [arrays[i][j]]);
+//     }
+//   }
+
+//   return result;
+// };
+
+// const temp1 = zip(
+//   ['moe', 'larry', 'curly'],
+//   [30, 40, 50],
+//   [true, false, false]
+// );
+// const tempF = function (a, b, c) {
+//   return zip(...arguments);
+// };
+// const temp2 = tempF(
+//   ['moe', 'larry', 'curly'],
+//   [30, 40, 50],
+//   [true, false, false]
+// );
+// console.log(temp1);
+// console.log(temp2);
+
+// #13 unzip
+
+// const unzip = array => {
+//   let result = [];
+
+//   for (let i = 0; i < array.length; i++) {
+//     for (let j = 0; j < array[i].length; j++) {
+//       result[j] ? result[j].push(array[i][j]) : (result[j] = [array[i][j]]);
+//     }
+//   }
+
+//   return result;
+// };
+
+// const temp1 = unzip([
+//   ['moe', 30, true],
+//   ['larry', 40, false],
+//   ['curly', 50, false],
+// ]);
+
+// console.log(temp1);
+
+// #14 object
+
+// const object = (...args) => {
+//   const obj = {};
+
+//   if (args.length === 2) {
+//     const keys = args[0];
+//     const values = args[1];
+
+//     for (let i = 0; i < keys.length; i++) obj[keys[i]] = values[i];
+//   } else if (args.length === 1) {
+//     const pairs = args[0];
+
+//     for (let i = 0; i < pairs.length; i++) obj[pairs[i][0]] = pairs[i][1];
+//   }
+
+//   return obj;
+// };
+
+// let obj1 = object(['moe', 'larry', 'curly'], [30, 40, 50]);
+// let obj2 = object([
+//   ['moe', 30],
+//   ['larry', 40],
+//   ['curly', 50],
+// ]);
+
+// console.log(obj1);
+// console.log(obj2);
+
+// #15 indexOf
+
+// const indexOf = (array, value, isSorted = false, fromIndex = 0) => {};
+
+// #16 lastIndexOf
+
+// const lastIndexOf = (array, value, fromIndex = 0) => {
+//   for (let i = array.length - 1; i >= fromIndex; i--) {
+//     if (array[i] === value) return i;
+//   }
+
+//   return -1;
+// };
+
+// const idx1 = lastIndexOf([1, 2, 3, 1, 2, 3], 2);
+// console.log(idx1);
+
+// #17 sortedIndex
+
+// const sortedIndex = (list, value, iteratee, context) => {};
+
+// #18 findIndex
+
+// const findIndex = (array, predicate)
