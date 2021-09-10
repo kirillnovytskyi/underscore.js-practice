@@ -315,7 +315,13 @@
 
 // #15 indexOf
 
-// const indexOf = (array, value, isSorted = false, fromIndex = 0) => {};
+// const indexOf = (array, value, fromIndex = 0) => {
+//   for (let i = fromIndex; i < array.length; i++) {
+//     if (array[i] === value) return i;
+//   }
+
+//   return -1;
+// };
 
 // #16 lastIndexOf
 
@@ -332,8 +338,81 @@
 
 // #17 sortedIndex
 
-// const sortedIndex = (list, value, iteratee, context) => {};
+// const sortedIndex = (list, value, iteratee, context) => {
+//   if (context) iteratee = iteratee.bind(context);
+
+//   if (iteratee) {
+//     if (typeof iteratee === 'string') {
+//       for (let i = 0; i < list.length; i++) {
+//         if (
+//           list[i][iteratee] < value[iteratee] &&
+//           list[i + 1][iteratee] > value[iteratee]
+//         ) {
+//           return i + 1;
+//         }
+//         if (list[i][iteratee] === value[iteratee]) return i;
+//       }
+//     } else {
+//       for (let i = 0; i < list.length; i++) {
+//         if (
+//           iteratee(list[i]) < iteratee(value) &&
+//           iteratee(list[i + 1]) > iteratee(value)
+//         ) {
+//           return i + 1;
+//         }
+//         if (iteratee(list[i]) === iteratee(value)) return i;
+//       }
+//     }
+//   } else {
+//     for (let i = 0; i < list.length; i++) {
+//       if (list[i] < value && list[i + 1] > value) return i + 1;
+//       if (list[i] === value) return i;
+//     }
+//   }
+// };
+
+// const sortedIdx1 = sortedIndex([10, 20, 30, 40, 50], 35);
+
+// const stooges = [
+//   { name: 'moe', age: 40 },
+//   { name: 'curly', age: 60 },
+// ];
+
+// const sortedIdx2 = sortedIndex(stooges, { name: 'larry', age: 50 }, 'age');
+
+// const sortedIdx3 = sortedIndex(
+//   stooges,
+//   { name: 'larry', age: 50 },
+//   function callback(el) {
+//     return el.age * this.number;
+//   },
+//   { number: 2 }
+// );
+
+// console.log(sortedIdx1);
+// console.log(sortedIdx2);
+// console.log(sortedIdx3);
 
 // #18 findIndex
 
-// const findIndex = (array, predicate)
+// const findIndex = (array, predicate, context) => {
+//   if (context) predicate = predicate.bind(context);
+
+//   for (let i = 0; i < array.length; i++) {
+//     if (predicate(array[i])) return i;
+//   }
+
+//   return -i;
+// };
+
+// const idx1 = findIndex(
+//   [1, 2, 3, 4, 5],
+//   function callback(el) {
+//     return el === this.number;
+//   },
+//   {
+//     number: 2,
+//   }
+// );
+
+// console.log(idx1);
